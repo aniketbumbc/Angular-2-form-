@@ -1,0 +1,26 @@
+<h3> Please Enter User Name and Password</h3>
+
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div ngModelGroup="userdata">
+    <div class="form_group">
+      <label> User Name </label>
+      <input type="text" name="username" class="formcontrol" id="username" [(ngModel)]="user.username"  name="username" required>
+    </div>
+    <div class="form_group">
+      <label>Email ID</label>
+      <input type="text" name="email" class="formcontrol" id="email" [(ngModel)]="user.email"  name="email"
+             pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?">
+          </div>
+  </div>
+  <div class="form_group">
+    <label>Password</label>
+    <input type="password" name="password" class="formcontrol" id="password" [(ngModel)]="user.password" name="password" required>
+  </div>
+  <div class="radiobutton" *ngFor="let g of genders">
+<label>
+  <input type="radio" name="gender" [(ngModel)]="user.gender" [value]="g">
+{{g}}
+</label>
+  </div>
+  <button type="submit" class="btntype"[disabled]="!f.valid"> Submit</button>
+</form>
